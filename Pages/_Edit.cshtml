@@ -1,10 +1,9 @@
 @model HtmxTables.Pages.Person
 @{
     var id = $"person-{Model.Id}";
-    var selector = $"#{id}";
 }
 
-<tr id="@id" hx-swap="outerHTML" hx-include="input" >
+<tr id="@id">
     <td>
         <label asp-for="Name" class="is-hidden">Name</label>
         <input class="input" type="text" asp-for="Name"/>
@@ -16,8 +15,9 @@
     <td class="has-text-right">
         <button class="button is-success"
                 hx-post="@Url.Page("Index", "Update", new {Model.Id})"
-                hx-target="@selector"
-                hx-include="@selector input">
+                hx-swap="outerHTML"
+                hx-target="closest tr"
+                hx-include="#@id input">
             <span class="icon">
                 <i class="fa fa-save"></i>
             </span>
@@ -25,7 +25,8 @@
         </button>
         <button class="button is-warning"
                 hx-get="@Url.Page("Index", "Row", new {Model.Id})"
-                hx-target="@selector">
+                hx-swap="outerHTML"
+                hx-target="closest tr">
             <span class="icon">
                 <i class="fa fa-exclamation-triangle"></i>
             </span>
