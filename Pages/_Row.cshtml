@@ -1,0 +1,25 @@
+@model HtmxTables.Pages.Person
+@{
+    var id = $"person-{Model.Id}";
+    var selector = $"#{id}";
+}
+
+<tr id="@id" hx-swap="outerHTML">
+    <td>
+        @Model.Name
+    </td>
+    <td>
+        @Model.Age
+    </td>
+    <td class="has-text-right">
+        <button class="button is-primary"
+                hx-get="@Url.Page("Index", "Edit", new {Model.Id})"
+                hx-swap="outerHTML"
+                hx-target="@selector">
+            <span class="icon">
+                <i class="fa fa-edit"></i>
+            </span>
+            <span>Edit</span>
+        </button>
+    </td>
+</tr>
