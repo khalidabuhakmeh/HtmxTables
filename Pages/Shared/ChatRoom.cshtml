@@ -1,0 +1,28 @@
+@model List<HtmxTables.Controllers.ChatController.Message>
+
+@{
+    Layout = null;
+}
+
+<div id="chat_room">
+    @if (Model is {Count: 0})
+    {
+        <div class="message is-info">
+            <div class="message-body">
+                <strong>Send a message, folks are waiting</strong>
+            </div>
+        </div>
+    }
+
+    @foreach (var message in Model)
+    {
+        <div class="message is-info">
+            <div class="message-header">
+                @message.Username <span class="is-italic">@message.At.ToLongDateString()</span>
+            </div>
+            <div class="message-body">
+                @message.Text
+            </div>
+        </div>
+    }
+</div>
