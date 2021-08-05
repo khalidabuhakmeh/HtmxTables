@@ -3,7 +3,12 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 
 var builder = WebApplication.CreateBuilder(args);
-builder.Services.AddRazorPages();
+builder.Services
+    .AddRazorPages()
+    .AddViewOptions(options =>
+    {
+        options.HtmlHelperOptions.ClientValidationEnabled = false;
+    });
 
 var app = builder.Build();
 

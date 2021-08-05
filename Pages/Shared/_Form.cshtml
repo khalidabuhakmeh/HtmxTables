@@ -1,0 +1,41 @@
+@model HtmxTables.Pages.Entry
+
+<form hx-post="@Url.Page("Entry")"
+      hx-swap="outerHTML"
+      class="form-horizontal">
+    <fieldset>
+
+        <!-- Form Name -->
+        <legend class="title mb-1">Validation Test</legend>
+
+        <div class="notification is-link is-light mt-2">
+            <p>The request uses <code>Task.Delay(Timespan.FromSeconds(1))</code> on the server so that you can see the loading spinner. Otherwise, <strong>HTMX + ASP.NET Core are way too fast.</strong></p>
+        </div>
+
+        <!-- Text input-->
+        <div class="field">
+            <label class="label" asp-for="Name"></label>
+            <div class="control">
+                <input type="text" class="input" asp-for="Name">
+                <span asp-validation-for="Name" class="help is-danger"></span>
+            </div>
+        </div>
+
+        <!-- Text input-->
+        <div class="field">
+            <label class="label" asp-for="Age"></label>
+            <div class="control">
+                <input type="text" class="input" asp-for="Age">
+                <span asp-validation-for="Age" class="help is-danger"></span>
+            </div>
+        </div>
+
+        <div class="control">
+            <button type="submit" class="button is-primary">
+                Submit
+            </button>
+            @Html.AntiForgeryToken()
+        </div>
+
+    </fieldset>
+</form>
