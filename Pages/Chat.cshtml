@@ -8,6 +8,8 @@
         I'd like to be able to clear the message, but can't find a way to trigger an event.
     </div>
 
+
+
     <div id="chatClient" hx-ws="connect:/chatroom">
         @await Html.PartialAsync("ChatRoom", Model.Messages)
         <form id="Chat" class="is-full mt-5" hx-ws="send">

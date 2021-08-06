@@ -1,0 +1,25 @@
+@page
+@model HtmxTables.Pages.Stonks
+
+<h1 class="title has-text-centered">
+    Real-time Stonks
+</h1>
+
+<style type="text/css">
+    #fade-me-in.htmx-settling {
+      opacity: 0;
+    }
+    #fade-me-in {
+      opacity: 1;
+      transition: opacity 1s ease-out;
+    }
+</style>
+
+
+<div class="container"
+     hx-get
+     hx-page="Stonks"
+     hx-trigger="every 2s"
+     hx-swap="innerHtml settle:1s">
+    @await Html.PartialAsync("_Stonks")
+</div>

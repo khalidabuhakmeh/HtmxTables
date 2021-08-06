@@ -1,0 +1,40 @@
+@model HtmxTables.Pages.Stonks
+
+<div class="level">
+    @foreach (var co in Model.Companies)
+    {
+        <div class="level-item has-text-centered">
+            <div class="box is-4" style="width: 80%">
+                <h2 class="heading is-size-1">
+                    <span class="icon">
+                        <i class="fab fa-@co.Icon"></i>
+                    </span>
+                    <span>@co.Name</span>
+                </h2>
+                <div class="title">
+                    @if (co.IsUp)
+                    {
+                        <div class="has-text-success">
+                            <span class="icon">
+                                <i class="fa fa-arrow-up"></i>
+                            </span>
+                            <span>@co.CurrentPrice.ToString("$#.00")</span>
+                        </div>
+                    }
+                    else
+                    {
+                        <div class="has-text-danger">
+                            <span class="icon">
+                                <i class="fa fa-arrow-down"></i>
+                            </span>
+                            <span>@co.CurrentPrice.ToString("$#.00")</span>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    }
+</div>
+<div class="block has-text-centered">
+    <p class="is-size-4">Last Updated: @DateTime.Now.ToLongTimeString()</p>
+</div>
