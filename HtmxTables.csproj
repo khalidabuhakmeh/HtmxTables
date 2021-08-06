@@ -6,8 +6,10 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <PackageReference Include="Htmx" Version="0.0.3" />
-      <PackageReference Include="Htmx.TagHelpers" Version="0.0.3" />
+        <PackageReference Include="Htmx" Version="0.0.3"/>
+        <PackageReference Include="Htmx.TagHelpers" Version="0.0.3"/>
+        <PackageReference Include="Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation"
+                          Version="6.0.0-preview.6.21355.2"/>
     </ItemGroup>
 
 </Project>

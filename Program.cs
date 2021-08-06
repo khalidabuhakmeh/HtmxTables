@@ -7,6 +7,7 @@ using Microsoft.Extensions.Hosting;
 var builder = WebApplication.CreateBuilder(args);
 builder.Services
     .AddRazorPages()
+    .AddRazorRuntimeCompilation()
     // for htmx-form validation
     .AddViewOptions(options =>
     {
